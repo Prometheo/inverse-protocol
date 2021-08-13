@@ -101,21 +101,22 @@ task('changeHarvester', 'Change a vault harvester')
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
+  defaultNetwork: "kovan",
   networks: {
     hardhat: {
-      forking: {
-        url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_KEY}`,
-        blockNumber: 11589707	
-      }
+      // forking: {
+      //   url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_KEY}`,
+      //   blockNumber: 11589707	
+      // }
     },
-    rinkeby: {
-      url: `https://eth-rinkeby.alchemyapi.io/v2/${process.env.ALCHEMY_KEY}`,
+    kovan: {
+      url: `https://eth-kovan.alchemyapi.io/v2/${process.env.ALCHEMY_KEY}`,
       accounts: [process.env.RINKEBY_PRIVKEY]
     },
-    live: {
-      url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_KEY}`,
-      accounts: [process.env.MAINNET_PRIVKEY]
-    }
+    // live: {
+    //   url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_KEY}`,
+    //   accounts: [process.env.MAINNET_PRIVKEY]
+    // }
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY
